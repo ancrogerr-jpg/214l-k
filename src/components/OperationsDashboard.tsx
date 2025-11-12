@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import {
   Activity, TrendingUp, TrendingDown, Minus, Users, Award,
-  FileCheck, AlertCircle, Clock, Shield, ChevronRight, Bell,
+  FileCheck, AlertCircle, Clock, Shield, ChevronRight,
   Menu, X, MessageSquare, Send, Flame, Trophy, Target,
   Zap, Database, Network, ArrowLeft, Bot
 } from 'lucide-react';
@@ -242,8 +242,7 @@ export default function OperationsDashboard({ onBack }: OperationsDashboardProps
               { name: 'Dashboard', icon: Activity, view: 'dashboard' },
               { name: 'Credentials', icon: Award, view: 'credentials' },
               { name: 'Institutions', icon: Shield, view: 'institutions' },
-              { name: 'Analytics', icon: TrendingUp, view: 'analytics' },
-              { name: 'Security', icon: Bot, view: 'security' }
+              { name: 'Analytics', icon: TrendingUp, view: 'analytics' }
             ].map((item) => (
               <button
                 key={item.name}
@@ -286,65 +285,11 @@ export default function OperationsDashboard({ onBack }: OperationsDashboardProps
                   <Clock className="w-4 h-4 text-gray-400" />
                   <span className="text-gray-400">{new Date().toLocaleTimeString()}</span>
                 </div>
-                <button className="relative p-2 text-gray-400 hover:text-white transition-colors">
-                  <Bell className="w-5 h-5" />
-                  <span className="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full animate-pulse"></span>
-                </button>
               </div>
             </div>
           </header>
 
           <main className="p-4 lg:p-8">
-            {activeView === 'security' && (
-              <div className="mb-8 bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl border border-gray-700 p-8">
-                <div className="flex flex-col lg:flex-row items-center justify-between">
-                  <div className="flex-1 mb-6 lg:mb-0">
-                    <h2 className="text-3xl font-bold text-white mb-4">Security Monitor</h2>
-                    <p className="text-gray-400 mb-6">AI-powered threat detection and system protection</p>
-                    <div className="space-y-3">
-                      <div className="flex items-center space-x-3">
-                        <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
-                        <span className="text-sm text-gray-300">All systems secure</span>
-                      </div>
-                      <div className="flex items-center space-x-3">
-                        <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
-                        <span className="text-sm text-gray-300">No threats detected</span>
-                      </div>
-                      <div className="flex items-center space-x-3">
-                        <div className="w-3 h-3 bg-blue-500 rounded-full animate-pulse"></div>
-                        <span className="text-sm text-gray-300">Monitoring {stats.totalCredentials} credentials</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="relative">
-                    <div className="w-64 h-64 relative">
-                      <svg viewBox="0 0 200 200" className="w-full h-full">
-                        <defs>
-                          <linearGradient id="botGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" stopColor="#3b82f6" />
-                            <stop offset="100%" stopColor="#06b6d4" />
-                          </linearGradient>
-                        </defs>
-                        <g className={`transform transition-all duration-500 ${botAnimation === 1 ? 'translate-y-2' : botAnimation === 2 ? 'translate-y-1' : ''}`}>
-                          <circle cx="100" cy="60" r="30" fill="url(#botGradient)" className="animate-pulse" />
-                          <circle cx="90" cy="55" r="4" fill="#fff" className="animate-blink" />
-                          <circle cx="110" cy="55" r="4" fill="#fff" className="animate-blink" />
-                          <path d="M 85 70 Q 100 75 115 70" stroke="#fff" strokeWidth="2" fill="none" strokeLinecap="round" />
-                          <rect x="70" y="90" width="60" height="40" rx="5" fill="url(#botGradient)" />
-                          <rect x="50" y="100" width="15" height="30" rx="3" fill="url(#botGradient)" className={`transform origin-center ${botAnimation === 1 ? 'rotate-12' : botAnimation === 2 ? '-rotate-12' : ''} transition-transform duration-500`} />
-                          <rect x="135" y="100" width="15" height="30" rx="3" fill="url(#botGradient)" className={`transform origin-center ${botAnimation === 1 ? '-rotate-12' : botAnimation === 2 ? 'rotate-12' : ''} transition-transform duration-500`} />
-                          <rect x="85" y="135" width="12" height="35" rx="3" fill="url(#botGradient)" />
-                          <rect x="103" y="135" width="12" height="35" rx="3" fill="url(#botGradient)" />
-                          <circle cx="75" cy="70" r="8" fill="#06b6d4" className="animate-ping" opacity="0.5" />
-                          <circle cx="125" cy="70" r="8" fill="#06b6d4" className="animate-ping" opacity="0.5" style={{ animationDelay: '0.5s' }} />
-                        </g>
-                      </svg>
-                      <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-cyan-500/20 rounded-full blur-3xl animate-pulse"></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            )}
             {activeView === 'credentials' && (
               <div className="bg-gray-800 rounded-2xl border border-gray-700 p-8 mb-8 animate-fade-in">
                 <h2 className="text-2xl font-bold text-white mb-4">Credentials Overview</h2>
