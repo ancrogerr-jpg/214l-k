@@ -184,6 +184,17 @@ export default function LoginPage({ onLogin, onBack }: LoginPageProps) {
               Back to Home
             </button>
           </div>
+
+          <div className="mt-8 relative overflow-hidden rounded-xl">
+            <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent z-10 pointer-events-none"></div>
+            <div className="absolute inset-0 bg-gradient-to-b from-white via-transparent to-transparent z-10 pointer-events-none"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-white via-transparent to-white z-10 pointer-events-none"></div>
+            <img
+              src="https://cdn.dribbble.com/userupload/20150771/file/original-099d5c05820e70d0f6427072b6be7580.gif"
+              alt="Security Animation"
+              className="w-full h-auto object-cover opacity-90 mix-blend-multiply"
+            />
+          </div>
         </div>
 
         <div className="bg-gradient-to-br from-blue-600 to-blue-800 rounded-2xl shadow-2xl p-8 text-white">
